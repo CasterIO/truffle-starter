@@ -1,0 +1,130 @@
+[
+    {
+        "id": 0,
+        "make": "Chevrolet",
+        "model": "Suburban",
+        "year": 2017,
+        "image": "./images/suburban.jpg",
+        "available": true
+    },
+    {
+        "id": 1,
+        "make": "Ford",
+        "model": "Expedition",
+        "year": 2017,
+        "image": "./images/expedition.jpg",
+        "available": true
+    },
+    {
+        "id": 2,
+        "make": "BMW",
+        "model": "X5",
+        "year": 2017,
+        "image": "./images/x5.jpg",
+        "available": true
+    },
+    {
+        "id": 3,
+        "make": "Lamborghini",
+        "model": "Urus",
+        "year": 2018,
+        "image": "./images/urus.jpg",
+        "available": true
+    },
+    {
+        "id": 4,
+        "make": "Audi",
+        "model": "S8",
+        "year": 2018,
+        "image": "./images/s8.jpg",
+        "available": true
+    },
+    {
+        "id": 5,
+        "make": "Infiniti",
+        "model": "Q50",
+        "year": 2018,
+        "image": "./images/q50.jpg",
+        "available": true
+    },
+    {
+        "id": 6,
+        "make": "Toyota",
+        "model": "Camry",
+        "year": 2016,
+        "image": "./images/camry.jpg",
+        "available": true
+    },
+    {
+        "id": 7,
+        "make": "Hyundai",
+        "model": "Velostar",
+        "year": 2017,
+        "image": "./images/velostar.jpg",
+        "available": true
+    },
+    {
+        "id": 8,
+        "make": "Hyundai",
+        "model": "Santa Fe",
+        "year": 2016,
+        "image": "./images/suburban.jpg",
+        "available": true
+    },
+    {
+        "id": 9,
+        "make": "Suzuki",
+        "model": "Maruti 800",
+        "year": 1982,
+        "image": "./images/800.jpg",
+        "available": true
+    },
+    {
+        "id": 10,
+        "make": "Bajaj",
+        "model": "RE 60",
+        "year": 2010,
+        "image": "./images/re60.jpg",
+        "available": true
+    },
+    {
+        "id": 11,
+        "make": "Archmoto",
+        "model": "Trike",
+        "year": 2015,
+        "image": "./images/trike.jpg",
+        "available": true
+    },
+    {
+        "id": 12,
+        "make": "Batmobile",
+        "model": "Batmobile",
+        "year": 2016,
+        "image": "./images/batmobile.jpg",
+        "available": true
+    },
+    {
+        "id": 13,
+        "make": "Unique",
+        "model": "Car",
+        "year": 2010,
+        "image": "./images/unique.jpg",
+        "available": true
+    },
+    {
+        "id": 14,
+        "make": "Custom",
+        "model": "Chopper",
+        "year": 2018,
+        "image": "./images/chopper.jpg",
+        "available": false
+    },
+    {
+        "id": 15,
+        "make": "Dodge",
+        "model": "Charger",
+        "year": 1972,
+        "image": "./images/charger.jpg",
+        "available": true
+    }
+]
