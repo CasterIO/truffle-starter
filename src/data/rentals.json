@@ -5,7 +5,8 @@
         "model": "Suburban",
         "year": 2017,
         "image": "./images/suburban.jpg",
-        "available": true
+        "available": true,
+        "price": 1
     },
     {
         "id": 1,
@@ -13,7 +14,8 @@
         "model": "Expedition",
         "year": 2017,
         "image": "./images/expedition.jpg",
-        "available": true
+        "available": true,
+        "price": 1
     },
     {
         "id": 2,
@@ -21,7 +23,8 @@
         "model": "X5",
         "year": 2017,
         "image": "./images/x5.jpg",
-        "available": true
+        "available": true,
+        "price": 2
     },
     {
         "id": 3,
@@ -29,7 +32,8 @@
         "model": "Urus",
         "year": 2018,
         "image": "./images/urus.jpg",
-        "available": true
+        "available": true,
+        "price": 2
     },
     {
         "id": 4,
@@ -37,7 +41,8 @@
         "model": "S8",
         "year": 2018,
         "image": "./images/s8.jpg",
-        "available": true
+        "available": true,
+        "price": 1.5
     },
     {
         "id": 5,
@@ -45,7 +50,8 @@
         "model": "Q50",
         "year": 2018,
         "image": "./images/q50.jpg",
-        "available": true
+        "available": true,
+        "price": 1
     },
     {
         "id": 6,
@@ -53,7 +59,8 @@
         "model": "Camry",
         "year": 2016,
         "image": "./images/camry.jpg",
-        "available": true
+        "available": true,
+        "price": 1
     },
     {
         "id": 7,
@@ -61,15 +68,17 @@
         "model": "Velostar",
         "year": 2017,
         "image": "./images/velostar.jpg",
-        "available": true
+        "available": true,
+        "price": 1
     },
     {
         "id": 8,
         "make": "Hyundai",
         "model": "Santa Fe",
         "year": 2016,
-        "image": "./images/suburban.jpg",
-        "available": true
+        "image": "./images/santafe.jpg",
+        "available": true,
+        "price": 1
     },
     {
         "id": 9,
@@ -77,7 +86,8 @@
         "model": "Maruti 800",
         "year": 1982,
         "image": "./images/800.jpg",
-        "available": true
+        "available": true,
+        "price": 1
     },
     {
         "id": 10,
@@ -85,7 +95,8 @@
         "model": "RE 60",
         "year": 2010,
         "image": "./images/re60.jpg",
-        "available": true
+        "available": true,
+        "price": 0.25
     },
     {
         "id": 11,
@@ -93,7 +104,8 @@
         "model": "Trike",
         "year": 2015,
         "image": "./images/trike.jpg",
-        "available": true
+        "available": true,
+        "price": 0.1
     },
     {
         "id": 12,
@@ -101,7 +113,8 @@
         "model": "Batmobile",
         "year": 2016,
         "image": "./images/batmobile.jpg",
-        "available": true
+        "available": true,
+        "price": 4
     },
     {
         "id": 13,
@@ -109,7 +122,8 @@
         "model": "Car",
         "year": 2010,
         "image": "./images/unique.jpg",
-        "available": true
+        "available": true,
+        "price": 2
     },
     {
         "id": 14,
@@ -117,7 +131,8 @@
         "model": "Chopper",
         "year": 2018,
         "image": "./images/chopper.jpg",
-        "available": false
+        "available": false,
+        "price": 0.5
     },
     {
         "id": 15,
@@ -125,6 +140,7 @@
         "model": "Charger",
         "year": 1972,
         "image": "./images/charger.jpg",
-        "available": true
+        "available": true,
+        "price": 1
     }
 ]
