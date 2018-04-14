@@ -101,7 +101,8 @@ class App extends Component {
     console.log('Rendering')
     return (
       <div className="App">
-        <nav className="navbar pure-menu pure-menu-horizontal">
+        <nav className="navbar pure-menu pure-menu-horizontal">>
+            <img className="pure-menu-heading" src={require('./images/caster_logo.png')} alt="Caster.io" width="32" />
             <a href="#" className="pure-menu-heading pure-menu-link">Caster.io Blockchain Track</a>
         </nav>
 
