@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Rental from '../build/contracts/Rental.json'
 import getWeb3 from './utils/getWeb3'
 
 import './css/pure-min.css'
@@ -52,26 +53,62 @@ class App extends Component {
 
     getWeb3
     .then(results => {
-      this.setState({
-        web3: results.web3
-      })
-
-      // Instantiate contract once web3 provided.
-      this.instantiateContract()
+        this.setState({
+            web3: results.web3
+        })
+        this.instantiateContract()
     })
     .catch(() => {
-      console.log('Error finding web3.')
+        console.log('Error finding web 3')
     })
   }
 
   instantiateContract() {
     // add your code to handle initial page load here
-    console.log('instantiateContract fired')
+    const contract = require('truffle-contract')
+    const rental = contract(Rental)
+    rental.setProvider(this.state.web3.currentProvider)
+    let rentalInstance
+    this.state.web3.eth.getAccounts((error, accounts) => {
+        rental.deployed().then((instance) => {
+            rentalInstance = instance
+            return rentalInstance.getRentals.call()
+        }).then((result) => {
+            console.log('Rental status on init')
+            console.log(result)
+            this.setState({
+                renters: result
+            })
+        }).catch((err) => {
+            console.log('Error listing rentals')
+            console.log(err)
+        })
+    })
   }
 
   handleRentMe(id) {
       // add code to rent vehicle here
-      console.log('handleRentMe fired')
+      let rentalInstance
+      const contract = require('truffle-contract')
+      const rental = contract(Rental)
+      rental.setProvider(this.state.web3.currentProvider)
+      this.state.web3.eth.getAccounts((error, accounts) => {
+          rental.deployed().then((instance) => {
+              rentalInstance = instance
+              return rentalInstance.rent(id, {
+                  from: accounts[0],
+                  value: this.state.web3.toWei(rentals[id].price, 'ether'),
+                  gas: 1000000,
+                  gasPrice: 20000000000
+              })
+          }).then((result) => {
+              console.log(`Successfully rented ${rentalInstance}`)
+              this.getContractBalance()
+          }).catch((err) => {
+              console.log('Error renting car')
+              console.log(err)
+          })
+      })
   }
 
   handleGetRentals() {
@@ -94,7 +131,19 @@ class App extends Component {
 
   getContractBalance() {
       // add code to get Ether value of contract here
-      console.log('getContractBalance fired')
+      let rentalContract
+      const contract = require('truffle-contract')
+      const rental = contract(Rental)
+      rental.setProvider(this.state.web3.currentProvider)
+      rental.deployed().then((instance) => {
+          rentalContract = instance
+          return rentalContract.getBalance()
+      }).then((result) => {
+          console.log(this.state.web3.fromWei(result.toNumber(), 'ether'))
+      }).catch((err) => {
+          console.log('Error getting contract balance')
+          console.log(err)
+      })
   }
 
   render() {
