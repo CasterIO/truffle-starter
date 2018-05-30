@@ -12,10 +12,23 @@ class RentalItem extends Component {
     constructor(props) {
         super(props)
         this.handleClick = this.handleClick.bind(this)
+        this.handleDisabled = this.handleDisabled.bind(this)
+        this.state = {
+            disabled: false
+        }
     }
 
     handleClick(id) {
         this.props.handleRentMe(id)
+        this.setState({
+            disabled: true
+        })
+    }
+
+    handleDisabled() {
+        console.log(this.state.disabled)
+        console.log(this.props.disabled)
+        return this.state.disabled || this.props.disabled
     }
 
     render() {
@@ -27,7 +40,7 @@ class RentalItem extends Component {
                 <button 
                     onClick={() => this.handleClick(this.props.id)} 
                     className="pure-button pure-button-primary"
-                    disabled={this.props.disabled}>
+                    disabled={this.handleDisabled()}>
                     Rent Me for Ξ{this.props.price}
                 </button>
             </div>
@@ -45,6 +58,7 @@ class App extends Component {
       renters: []
     }
     this.handleRentMe = this.handleRentMe.bind(this);
+    this.withdrawFunds = this.withdrawFunds.bind(this);
   }
 
   componentWillMount() {
@@ -79,6 +93,7 @@ class App extends Component {
             this.setState({
                 renters: result
             })
+            this.getContractBalance()
         }).catch((err) => {
             console.log('Error listing rentals')
             console.log(err)
@@ -102,7 +117,7 @@ class App extends Component {
                   gasPrice: 20000000000
               })
           }).then((result) => {
-              console.log(`Successfully rented ${rentalInstance}`)
+              console.log(`Successfully submitted to the blockchain ${rentalInstance}`)
               this.getContractBalance()
           }).catch((err) => {
               console.log('Error renting car')
@@ -146,6 +161,25 @@ class App extends Component {
       })
   }
 
+  withdrawFunds() {
+      const contract = require('truffle-contract')
+      const rental = contract(Rental)
+      rental.setProvider(this.state.web3.currentProvider)
+      let rentalInstance
+      this.state.web3.eth.getAccounts((error, accounts) => {
+          rental.deployed().then((instance) => {
+              rentalInstance = instance
+              return rentalInstance.payday({
+                  from: accounts[0]
+              })
+          }).then((result) => {
+              console.log('Contract payment initiated')
+          }).catch((err) => {
+              console.log('Error withdrawing funds', err)
+          })
+      })
+  }
+
   render() {
     console.log('Rendering')
     return (
@@ -153,6 +187,12 @@ class App extends Component {
         <nav className="navbar pure-menu pure-menu-horizontal">>
             <img className="pure-menu-heading" src={require('./images/caster_logo.png')} alt="Caster.io" width="32" />
             <a href="#" className="pure-menu-heading pure-menu-link">Caster.io Blockchain Track</a>
+            <div><button 
+                    onClick={this.withdrawFunds} 
+                    className="pure-button pure-button-primary">
+                    Withdraw Funds
+                </button>
+            </div>
         </nav>
 
         <main className="container">
