@@ -49,9 +49,12 @@
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
+    "build": "^0.1.4",
     "dotenv": "^2.0.0",
+    "npm": "^6.4.1",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "run": "^1.4.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
